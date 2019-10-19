@@ -53,10 +53,12 @@ public class GameController : MonoBehaviour
             }
             else
             {
-                PlayerPrefs.SetInt("Lives", _lives);
                 livesLabel.text = "Lives: " + _lives.ToString();
             }
-           
+            if (highScore.GetComponent<HighScore>().lives < _lives)
+            {
+                highScore.GetComponent<HighScore>().lives = _lives;
+            }
         }
     }
 
@@ -78,9 +80,8 @@ public class GameController : MonoBehaviour
             {
                 highScore.GetComponent<HighScore>().high_Score = _score;
                 highScore.GetComponent<HighScore>().score = _score;
-                highScore.GetComponent<HighScore>().lives = _lives;
-
             }
+
             // if the player reaches 500 score then move to level 2
             if (_score >= 500)
             {
