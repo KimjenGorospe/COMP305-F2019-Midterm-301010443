@@ -43,7 +43,6 @@ public class SidePlayerController : MonoBehaviour
         rBody.position = new Vector2(
            Mathf.Clamp(rBody.position.x, boundary.Left, boundary.Right), // Restricts on the X postition to xMin and xMax
            Mathf.Clamp(rBody.position.y, boundary.Bottom, boundary.Top)); // Restricts on the Y postition to yMin and yMax
-
     }
     /*public void Move()
 {

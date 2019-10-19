@@ -5,7 +5,7 @@ using Util;
 
 public class PlayerController : MonoBehaviour
 {
-    public Speed speed;
+    public float speed;
     public Boundary boundary;
 
     public GameController gameController;
@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
     // private instance variables
     private AudioSource _thunderSound;
     private AudioSource _yaySound;
+
+    public Rigidbody2D rBody;
 
     // Start is called before the first frame update
     void Start()
@@ -24,40 +26,40 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Move();
-        CheckBounds();
+        if (PlayerPrefs.GetInt("Score") >= 500)
+        {
+            SideMove();
+        }
+        else
+        {
+            Move();
+        }
+       CheckBounds();
     }
 
     public void Move()
     {
-        Vector2 newPosition = transform.position;
+        float horiz = Input.GetAxis("Horizontal");
 
-        if(Input.GetAxis("Horizontal") > 0.0f)
-        {
-            newPosition += new Vector2(speed.max, 0.0f);
-        }
+        Vector2 movement = new Vector2(horiz, 0);
+        rBody.velocity = movement * speed;
+        Debug.Log("Aye");
+    }
 
-        if (Input.GetAxis("Horizontal") < 0.0f)
-        {
-            newPosition += new Vector2(speed.min, 0.0f);
-        }
+    public void SideMove()
+    {
+        // Reads input
+        float vert = Input.GetAxis("Vertical");
 
-        transform.position = newPosition;
+        Vector2 movement = new Vector2(0, vert);
+        rBody.velocity = movement * speed;
     }
 
     public void CheckBounds()
     {
-        // check right boundary
-        if(transform.position.x > boundary.Right)
-        {
-            transform.position = new Vector2(boundary.Right, transform.position.y);
-        }
-
-        // check left boundary
-        if (transform.position.x < boundary.Left)
-        {
-            transform.position = new Vector2(boundary.Left, transform.position.y);
-        }
+        rBody.position = new Vector2(
+                  Mathf.Clamp(rBody.position.x, boundary.Left, boundary.Right), // Restricts on the X postition to xMin and xMax
+                  Mathf.Clamp(rBody.position.y, boundary.Bottom, boundary.Top)); // Restricts on the Y postition to yMin and yMax
     }
 
     void OnTriggerEnter2D(Collider2D other)

@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class SideOceanController : MonoBehaviour
 {
+    [Header("Speed Values")]
     public float horizontalSpeed = 0.05f;
+
+    [Header("Reset Values")]
     public float resetPosition;
     public float resetPoint;
 

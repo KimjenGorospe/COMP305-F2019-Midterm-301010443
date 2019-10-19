@@ -69,14 +69,15 @@ public class GameController : MonoBehaviour
         set
         {
             _score = value;
+            PlayerPrefs.SetInt("Score", _score);
 
-            
+
 
             if (highScore.GetComponent<HighScore>().score < _score)
             {
                 highScore.GetComponent<HighScore>().score = _score;
             }
-            scoreLabel.text = "Score: " + _score.ToString();
+            scoreLabel.text = "Score: " + PlayerPrefs.GetInt("Score").ToString();
             // if the player reaches 500 score then move to level 2
             if (_score >= 500)
             {
