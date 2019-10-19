@@ -50,14 +50,12 @@ public class GameController : MonoBehaviour
             {
                 
                 SceneManager.LoadScene("End");
+                highScore.GetComponent<HighScore>().score = 0;
             }
             else
             {
-                livesLabel.text = "Lives: " + highScore.GetComponent<HighScore>().lives;
-            }
-            if (highScore.GetComponent<HighScore>().lives < _lives)
-            {
                 highScore.GetComponent<HighScore>().lives = _lives;
+                livesLabel.text = "Lives: " + highScore.GetComponent<HighScore>().lives;
             }
         }
     }
@@ -72,18 +70,17 @@ public class GameController : MonoBehaviour
         set
         {
             _score = value;
-            scoreLabel.text = "High Score: " + highScore.GetComponent<HighScore>().score;
-            if (highScore.GetComponent<HighScore>().score < _score)
+            if (highScore.GetComponent<HighScore>().high_Score < _score)
             {
-                highScore.GetComponent<HighScore>().high_Score = _score;
-                highScore.GetComponent<HighScore>().score = _score;
+                highScore.GetComponent<HighScore>().high_Score = _score; 
             }
-
+            highScore.GetComponent<HighScore>().score = _score;
             // if the player reaches 500 score then move to level 2
-            if (_score > 500)
+            if (highScore.GetComponent<HighScore>().score >= 499)
             {
                 SceneManager.LoadScene("Level2");
             }
+            scoreLabel.text = "Score: " + highScore.GetComponent<HighScore>().score;
         }
     }
 
