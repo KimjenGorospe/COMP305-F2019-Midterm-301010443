@@ -53,7 +53,7 @@ public class GameController : MonoBehaviour
             }
             else
             {
-                livesLabel.text = "Lives: " + _lives.ToString();
+                livesLabel.text = "Lives: " + highScore.GetComponent<HighScore>().lives;
             }
             if (highScore.GetComponent<HighScore>().lives < _lives)
             {
@@ -71,11 +71,8 @@ public class GameController : MonoBehaviour
 
         set
         {
-            _score = PlayerPrefs.GetInt("Score");
             _score = value;
-            PlayerPrefs.SetInt("Score", _score);
-
-
+            scoreLabel.text = "High Score: " + highScore.GetComponent<HighScore>().score;
             if (highScore.GetComponent<HighScore>().score < _score)
             {
                 highScore.GetComponent<HighScore>().high_Score = _score;
@@ -83,7 +80,7 @@ public class GameController : MonoBehaviour
             }
 
             // if the player reaches 500 score then move to level 2
-            if (_score >= 500)
+            if (_score > 500)
             {
                 SceneManager.LoadScene("Level2");
             }
@@ -99,7 +96,7 @@ public class GameController : MonoBehaviour
 
     private void GameObjectInitialization()
     {
-        highScore = GameObject.Find("HighScore");
+        highScore = GameObject.Find("ScoreBoard");
 
         startLabel = GameObject.Find("StartLabel");
         endLabel = GameObject.Find("EndLabel");
@@ -143,7 +140,7 @@ public class GameController : MonoBehaviour
                 startLabel.SetActive(false);
                 startButton.SetActive(false);
                 activeSoundClip = SoundClip.NONE;
-                highScoreLabel.text = "High Score: " + highScore.GetComponent<HighScore>().score;
+                highScoreLabel.text = "High Score: " + highScore.GetComponent<HighScore>().high_Score;
                 break;
         }
 
