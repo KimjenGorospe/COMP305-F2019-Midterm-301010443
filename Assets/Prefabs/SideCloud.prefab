@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4759771146341428799}
   - component: {fileID: 4759771146341428793}
   - component: {fileID: 4492277315559239583}
+  - component: {fileID: 6927649046034475871}
   m_Layer: 0
   m_Name: SideCloud
   m_TagString: Cloud
@@ -173,3 +174,30 @@ PolygonCollider2D:
       - {x: 1.0150105, y: -0.57929325}
       - {x: 1.0854125, y: -0.47050476}
       - {x: 1.13, y: -0.42}
+--- !u!114 &6927649046034475871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4759771146341428796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d62a25aef0929ee48a12eda3e5739b99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  horizontalSpeedRange:
+    min: 0.05
+    max: 0.08
+  verticalSpeedRange:
+    min: -0.009
+    max: 0.009
+  verticalSpeed: 0.01
+  horizontalSpeed: 0.01
+  boundary:
+    Top: 3
+    Right: -2.063
+    Bottom: -3
+    Left: 2.063
+  resetPosition: 6
+  resetPoint: -5

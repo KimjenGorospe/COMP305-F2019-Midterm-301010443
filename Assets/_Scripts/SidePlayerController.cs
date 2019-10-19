@@ -15,7 +15,7 @@ public class SidePlayerController : MonoBehaviour
     // private instance variables
     private AudioSource _thunderSound;
     private AudioSource _yaySound;
-    private Rigidbody2D rBody;
+    public Rigidbody2D rBody;
 
     // Start is called before the first frame update
     void Start()

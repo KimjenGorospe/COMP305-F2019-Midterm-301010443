@@ -18,6 +18,9 @@ public class SideCloudController : MonoBehaviour
     [SerializeField]
     public Boundary boundary;
 
+    public float resetPosition;
+    public float resetPoint;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -52,7 +55,7 @@ public class SideCloudController : MonoBehaviour
         verticalSpeed = Random.Range(verticalSpeedRange.min, verticalSpeedRange.max);
 
         float randomXPosition = Random.Range(boundary.Bottom, boundary.Top);
-        transform.position = new Vector2(randomXPosition, Random.Range(boundary.Right, boundary.Right));
+        transform.position = new Vector2(resetPosition, randomXPosition/*Random.Range(boundary.Right, boundary.Right + 2.0f)*/);
     }
 
     /// <summary>
@@ -61,7 +64,7 @@ public class SideCloudController : MonoBehaviour
     /// </summary>
     void CheckBounds()
     {
-        if (transform.position.x <= boundary.Left)
+        if (transform.position.x <= resetPoint)
         {
             Reset();
         }
