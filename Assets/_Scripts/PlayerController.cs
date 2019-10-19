@@ -26,14 +26,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (PlayerPrefs.GetInt("Score") >= 500)
-        {
-            SideMove();
-        }
-        else
-        {
-            Move();
-        }
+       Move();
        CheckBounds();
     }
 
@@ -42,16 +35,8 @@ public class PlayerController : MonoBehaviour
         float horiz = Input.GetAxis("Horizontal");
 
         Vector2 movement = new Vector2(horiz, 0);
-        rBody.velocity = movement * speed;
-        Debug.Log("Aye");
-    }
 
-    public void SideMove()
-    {
-        // Reads input
-        float vert = Input.GetAxis("Vertical");
-
-        Vector2 movement = new Vector2(0, vert);
+        //Moves the Player
         rBody.velocity = movement * speed;
     }
 

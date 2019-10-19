@@ -53,6 +53,7 @@ public class GameController : MonoBehaviour
             }
             else
             {
+                PlayerPrefs.SetInt("Lives", _lives);
                 livesLabel.text = "Lives: " + _lives.ToString();
             }
            
@@ -68,9 +69,9 @@ public class GameController : MonoBehaviour
 
         set
         {
+            _score = PlayerPrefs.GetInt("Score");
             _score = value;
             PlayerPrefs.SetInt("Score", _score);
-
 
 
             if (highScore.GetComponent<HighScore>().score < _score)
@@ -83,6 +84,7 @@ public class GameController : MonoBehaviour
             {
                 PlayerPrefs.SetInt("Score", _score);
                 PlayerPrefs.SetInt("Lives", _lives);
+                _score = PlayerPrefs.GetInt("Score", _score);
                 SceneManager.LoadScene("Level2");
             }
         }

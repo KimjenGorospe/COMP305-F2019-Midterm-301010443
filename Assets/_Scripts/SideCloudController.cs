@@ -51,8 +51,8 @@ public class SideCloudController : MonoBehaviour
         horizontalSpeed = Random.Range(horizontalSpeedRange.min, horizontalSpeedRange.max);
         verticalSpeed = Random.Range(verticalSpeedRange.min, verticalSpeedRange.max);
 
-        float randomXPosition = Random.Range(boundary.Left, boundary.Right);
-        transform.position = new Vector2(randomXPosition, Random.Range(boundary.Top, boundary.Top + 2.0f));
+        float randomXPosition = Random.Range(boundary.Bottom, boundary.Top);
+        transform.position = new Vector2(randomXPosition, Random.Range(boundary.Right, boundary.Right));
     }
 
     /// <summary>
@@ -61,7 +61,7 @@ public class SideCloudController : MonoBehaviour
     /// </summary>
     void CheckBounds()
     {
-        if (transform.position.y <= boundary.Bottom)
+        if (transform.position.x <= boundary.Left)
         {
             Reset();
         }

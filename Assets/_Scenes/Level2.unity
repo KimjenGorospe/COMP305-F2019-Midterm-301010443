@@ -266,13 +266,25 @@ PrefabInstance:
     - target: {fileID: 6258031004218500820, guid: 0cd6714592b08874d95701663d2115fa,
         type: 3}
       propertyPath: numberOfClouds
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6258031004218500820, guid: 0cd6714592b08874d95701663d2115fa,
         type: 3}
       propertyPath: _lives
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6258031004218500820, guid: 0cd6714592b08874d95701663d2115fa,
+        type: 3}
+      propertyPath: cloud
+      value: 
+      objectReference: {fileID: 4759771146341428796, guid: cc4d01d9e647ba6449d05cc162318dcd,
+        type: 3}
+    - target: {fileID: 6258031004218500820, guid: 0cd6714592b08874d95701663d2115fa,
+        type: 3}
+      propertyPath: island
+      value: 
+      objectReference: {fileID: 3355709997674550848, guid: c71919160a52552468e6d9a324ec2a66,
+        type: 3}
     - target: {fileID: 6258031004218500823, guid: 0cd6714592b08874d95701663d2115fa,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -827,7 +839,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1786883227}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 58165ee388a0352408ef77081229f1e0, type: 3}
   m_Name: 
@@ -846,19 +858,19 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1786883227}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 62a6a0ef93945e4458b6ed12ef94723c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3.5
+  speed: 0
   boundary:
     Top: 2
     Right: 4
     Bottom: -2
     Left: -4
   gameController: {fileID: 1083259635}
-  rBody: {fileID: 1786883229}
+  rBody: {fileID: 0}
 --- !u!1001 &1973351844
 PrefabInstance:
   m_ObjectHideFlags: 0
